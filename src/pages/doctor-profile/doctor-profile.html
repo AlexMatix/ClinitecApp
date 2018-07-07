@@ -1,0 +1,70 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+          <img src="../../assets/imgs/logo_small.png" width="100">        
+        </ion-title>
+    </ion-navbar>
+  
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+    <link rel="stylesheet" href="../../assets/css/menu.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</ion-header>r>
+
+<ion-content>
+    <div class="container margin_60_35">
+        <div id="register">
+          <div class="row justify-content-center">
+            <div class="col-md-5">
+              <form>
+                <div class="box_form">
+                  <div class="form-group">
+                    <img src="../../assets/imgs/garcia.jpg">
+                  </div>
+                  
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Especialista en">
+                  </div>
+
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Dirección">
+                  </div>
+
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Teléfono">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="about">Sobre mí:</label>
+                      <textarea class="form-control" rows="5" id="about"></textarea>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="academic">Formación:</label>
+                      <textarea class="form-control" rows="5" id="academic"></textarea>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="price">Servicios y precios:</label>
+                      <textarea class="form-control" rows="5" id="price"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Horario de atención">
+                  </div>
+
+                  <div id="pass-info" class="clearfix"></div>
+                  <div class="form-group text-center add_top_30">
+                    <button class="btn_1" (click)="updateData()">
+                      Actualizar información
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- /row -->
+        </div>
+        <!-- /register -->
+      </div>
+</ion-content>

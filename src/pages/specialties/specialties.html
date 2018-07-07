@@ -1,0 +1,91 @@
+<ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle left>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+          <img src="../../assets/imgs/logo_small.png" width="100">        
+        </ion-title>
+    </ion-toolbar>
+  
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+    <link rel="stylesheet" href="../../assets/css/menu.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</ion-header>
+
+<ion-menu [content]="mycontent">
+    <ion-header>
+        <ion-navbar>
+            <ion-title>Menu</ion-title>
+        </ion-navbar>
+    </ion-header>
+    <ion-content>
+        <ion-item (click)='doctor_profile()'>
+            <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
+            Perfíl Médico
+        </ion-item>
+
+        <ion-item (click)='patient_profile()'>
+            <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
+            Perfíl Paciente
+        </ion-item>
+
+        <ion-item (click)='dating()'>
+            <ion-icon ios="ios-calendar" md="md-calendar" item-start></ion-icon>
+            Consultas
+        </ion-item>
+
+        <ion-item (click)='allPatients()'>
+            <ion-icon ios="ios-contacts" md="md-contacts" item-start></ion-icon>
+            Todos los pacientes 
+        </ion-item>
+    </ion-content>
+</ion-menu>
+  
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
+
+<ion-content>
+    <div id="mm-0" class="mm-page mm-slideout">
+        <div id="page">
+          <main>
+            <div class="container margin_120_95">
+              <div class="row justify-content-center">
+    
+                <div class="col-xl-4 col-lg-5 col-md-6">
+                  <div class="list_home">
+                    <div class="list_title">
+                      <i class="icon_archive_alt"></i>
+                      <h3>Especialidades</h3>
+                    </div>
+                    <ul>
+                      <li (click)="selectOne()">
+                        <a>
+                            <img src="../../assets/imgs/especialidades/cardiologia.png" width="40"> Cardiología
+                        </a>
+                      </li>
+                      <li (click)="selectOne()">
+                          <a>
+                              <img src="../../assets/imgs/especialidades/estomatologia.png" width="40"> Estomatología
+                          </a>
+                      </li>
+                      <li (click)="selectOne()">
+                          <a>
+                              <img src="../../assets/imgs/especialidades/neurologia.png" width="40"> Neurología
+                          </a>
+                      </li>
+                      <li (click)="selectOne()">
+                          <a>
+                              <img src="../../assets/imgs/especialidades/pediatria.png" width="40"> Pediatría
+                          </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    
+</ion-content>

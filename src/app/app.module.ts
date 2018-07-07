@@ -5,21 +5,50 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { SpecialtiesPage } from '../pages/specialties/specialties';
+import { ForgetPage } from '../pages/forget/forget';
+import { DoctorsPage } from '../pages/doctors/doctors';
+import { DprofilePage } from '../pages/dprofile/dprofile';
+import { DatingPage } from '../pages/dating/dating';
+import { PatientProfilePage } from '../pages/patient-profile/patient-profile';
+import { DoctorProfilePage } from '../pages/doctor-profile/doctor-profile';
+import { AllPatientsPage } from '../pages/all-patients/all-patients';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    LoginPage,
+    RegisterPage,
+    SpecialtiesPage,
+    ForgetPage,
+    DoctorsPage,
+    DprofilePage,
+    DatingPage,
+    PatientProfilePage,
+    DoctorProfilePage,
+    AllPatientsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      backButtonText: ''
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    LoginPage,
+    RegisterPage,
+    SpecialtiesPage,
+    ForgetPage,
+    DoctorsPage,
+    DprofilePage,
+    DatingPage,
+    PatientProfilePage,
+    DoctorProfilePage,
+    AllPatientsPage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,56 @@
+<ion-header>
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/css/menu.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+</ion-header>
+
+<ion-content class="au">
+	<div id="mm-0" class="mm-page mm-slideout">
+		<div id="page">
+			<main>
+				<div class="bg_color_2">
+					<div class="container margin_60_35">
+						<div id="login-2">
+							<img src="../../assets/imgs/logo.png" width="350" class="img-responsive">
+							<h1>Por favor inicia sesión en Clinitec</h1>
+								<div class="box_form clearfix">
+									<!--
+									<div class="box_login">
+										<a class="social_bt facebook">
+											Entrar con Facebook
+										</a>
+									</div>
+									-->
+									<div class="box_login last">
+										<div class="form-group">
+											<input [(ngModel)]="username" type="email" class="form-control" placeholder="Tu dirección de email">
+										</div>
+										<div class="form-group">
+											<input [(ngModel)]="pass" type="password" class="form-control" placeholder="Tu contraseña">
+										</div>
+										<p class="link_bright">
+											<a>
+												<strong (click)='forget()'>¿Olvidaste tu contraseña?</strong>
+											</a>
+										</p>
+										<div class="form-group">
+											<button class="btn_1" (click)='home()'>
+												Entrar
+											</button>
+										</div>
+									</div>
+								</div>
+							<p class="text-center link_bright">¿No tienes una cuenta?
+								<a>
+								  <strong (click)='register()'>Registrate</strong>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+		<div id="toTop"></div>
+	</div>
+</ion-content>
