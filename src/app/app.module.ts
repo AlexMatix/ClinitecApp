@@ -18,6 +18,7 @@ import { AllPatientsPage } from '../pages/all-patients/all-patients';
 
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     MyApp,
