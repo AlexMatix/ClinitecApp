@@ -16,6 +16,8 @@ import { PatientProfilePage } from '../pages/patient-profile/patient-profile';
 import { DoctorProfilePage } from '../pages/doctor-profile/doctor-profile';
 import { AllPatientsPage } from '../pages/all-patients/all-patients';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -32,6 +34,7 @@ import { AllPatientsPage } from '../pages/all-patients/all-patients';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: ''
     })
