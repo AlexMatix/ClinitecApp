@@ -7,6 +7,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'patient-profile.html',
 })
 export class PatientProfilePage {
+  patientProfile:any = {
+    "photo_url":"assets/imgs/upload.png",
+    "name": localStorage.getItem('name'),
+    "email":localStorage.getItem('email'),
+    "lastName": localStorage.getItem('lastName'),
+    "phone":localStorage.getItem('phone')
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

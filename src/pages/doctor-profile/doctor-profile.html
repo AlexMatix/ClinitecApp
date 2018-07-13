@@ -16,41 +16,44 @@
         <div id="register">
           <div class="row justify-content-center">
             <div class="col-md-5">
-              <form>
                 <div class="box_form">
                   <div class="form-group">
-                    <img src="../../assets/imgs/garcia.jpg">
+                    <img src="{{doctorProfile.photo_url}}">
                   </div>
                   
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Especialista en">
+                    <input type="text" class="form-control" placeholder="Especialista en" [(ngModel)]="doctorProfile.job_position">
                   </div>
 
                   <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Dirección">
+                      <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="doctorProfile.name">
                   </div>
 
                   <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Teléfono">
+                      <input type="text" class="form-control" placeholder="Dirección" [(ngModel)]="doctorProfile.address">
+                  </div>
+
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Teléfono" [(ngModel)]="doctorProfile.phone">
                   </div>
 
                   <div class="form-group">
                       <label for="about">Sobre mí:</label>
-                      <textarea class="form-control" rows="5" id="about"></textarea>
+                      <textarea class="form-control" rows="5" id="about" [(ngModel)]="doctorProfile.about_me"></textarea>
                   </div>
                   
                   <div class="form-group">
                       <label for="academic">Formación:</label>
-                      <textarea class="form-control" rows="5" id="academic"></textarea>
+                      <textarea class="form-control" rows="5" id="academic" [(ngModel)]="doctorProfile.education"></textarea>
                   </div>
                   
                   <div class="form-group">
                       <label for="price">Servicios y precios:</label>
-                      <textarea class="form-control" rows="5" id="price"></textarea>
+                      <textarea class="form-control" rows="5" id="price" [(ngModel)]="doctorProfile.services_prices"></textarea>
                   </div>
 
                   <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Horario de atención">
+                      <input type="text" class="form-control" placeholder="Horario de atención" [(ngModel)]="doctorProfile.attention_hour">
                   </div>
 
                   <div id="pass-info" class="clearfix"></div>
@@ -60,7 +63,6 @@
                     </button>
                   </div>
                 </div>
-              </form>
             </div>
           </div>
           <!-- /row -->
