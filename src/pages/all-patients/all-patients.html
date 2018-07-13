@@ -1,26 +1,25 @@
 <ion-header>
   <ion-navbar>
       <ion-title>
-        <img src="../../assets/imgs/logo_small.png" width="100">        
+        <img src="assets/imgs/logo_small.png" width="100">        
       </ion-title>
   </ion-navbar>
 
-  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../assets/css/custom.css">
-  <link rel="stylesheet" href="../../assets/css/menu.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </ion-header>
 
 <ion-content>
 
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let patient of allPatients;">
       <ion-thumbnail item-start>
-        <img src="../../assets/imgs/patient.jpg">
+        <img src="{{patient.photo_url}}">
       </ion-thumbnail>
-      <h2>Sebastian Barrera</h2>
-      <p>13/07/2017 - 9:00 AM</p>
-      <button ion-button clear item-end>Reenviar receta</button>
+      <h2>{{patient.name}}</h2>
+      <button ion-button clear item-end (click)="resend(patient.patientId)">Reenviar receta</button>
     </ion-item>
   </ion-list>
 

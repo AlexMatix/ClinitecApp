@@ -64,7 +64,7 @@ export class DprofilePage {
       "Fecha" : this.date,
       "Hora_inicio" : this.hour,
       "Hora_termino" : ":)",
-      "idPaciente" : localStorage.getItem('patient_id'),
+      "idPaciente" : localStorage.getItem('id'),
       "idMedico" : this.doctorId,
       "idCentro_medico" : localStorage.getItem('mcenter_id')
     }
