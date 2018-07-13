@@ -4,14 +4,14 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>
-          <img src="../../assets/imgs/logo_small.png" width="100">        
+          <img src="assets/imgs/logo_small.png" width="100">        
         </ion-title>
     </ion-toolbar>
   
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/custom.css">
-    <link rel="stylesheet" href="../../assets/css/menu.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/menu.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </ion-header>
 
 <ion-menu [content]="mycontent">
@@ -40,6 +40,10 @@
             <ion-icon ios="ios-contacts" md="md-contacts" item-start></ion-icon>
             Todos los pacientes 
         </ion-item>
+        <ion-item (click)='recipes()'>
+            <ion-icon ios="ios-document" md="md-document" item-start></ion-icon>
+            Recetas
+        </ion-item>
     </ion-content>
 </ion-menu>
   
@@ -59,25 +63,10 @@
                       <h3>Especialidades</h3>
                     </div>
                     <ul>
-                      <li (click)="selectOne()">
-                        <a>
-                            <img src="../../assets/imgs/especialidades/cardiologia.png" width="40"> Cardiología
-                        </a>
-                      </li>
-                      <li (click)="selectOne()">
-                          <a>
-                              <img src="../../assets/imgs/especialidades/estomatologia.png" width="40"> Estomatología
-                          </a>
-                      </li>
-                      <li (click)="selectOne()">
-                          <a>
-                              <img src="../../assets/imgs/especialidades/neurologia.png" width="40"> Neurología
-                          </a>
-                      </li>
-                      <li (click)="selectOne()">
-                          <a>
-                              <img src="../../assets/imgs/especialidades/pediatria.png" width="40"> Pediatría
-                          </a>
+                      <li *ngFor="let specialitie of allSpecialties;">
+                            <a>
+                              <img src="assets/imgs/especialidades/{{specialitie}}.png" width="40"> {{specialitie | capitalize}}
+                            </a>
                       </li>
                     </ul>
                   </div>

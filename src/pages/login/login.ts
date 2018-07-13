@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -23,7 +23,8 @@ export class LoginPage {
   headers = new HttpHeaders();
   login: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient,
+              public load: LoadingController) {
     this.url = SERVER_URL;
     this.token = ACCESS_TOKEN;
     this.secret = SECRET;
@@ -58,7 +59,18 @@ export class LoginPage {
       localStorage.setItem('access_token', data.access_token);
       localStorage.setItem('refresh_token', data.refresh_token);
       localStorage.setItem('email', this.username);
-      this.navCtrl.setRoot(SpecialtiesPage);
+      
+      let loading = this.load.create({
+        content: 'Espere un momento...'
+      });
+    
+      loading.present();
+    
+      setTimeout(() => {
+        loading.dismiss();
+        this.navCtrl.setRoot(SpecialtiesPage);
+      }, 2000);
+
     })
 
   }

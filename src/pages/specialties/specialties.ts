@@ -8,6 +8,7 @@ import { DatingPage } from '../dating/dating';
 import { PatientProfilePage } from '../patient-profile/patient-profile';
 import { DoctorProfilePage } from '../doctor-profile/doctor-profile';
 import { AllPatientsPage } from '../all-patients/all-patients';
+import { RecipesPage } from '../recipes/recipes';
 
 import { SERVER_URL } from '../../providers/constants/constants';
 
@@ -23,6 +24,7 @@ export class SpecialtiesPage {
   headers = new HttpHeaders();
   userinfo: Observable<any>;
   specialties: Observable<any>;
+  allSpecialties: any = ['cardiologia', 'estomatologia', 'neurologia', 'pediatria'];
 
   constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams,
               public http: HttpClient) {
@@ -51,6 +53,7 @@ export class SpecialtiesPage {
     this.specialties
     .subscribe(data => {
       console.log(data);
+      //this.allSpecialties = data;
     });
 
   }
@@ -77,6 +80,10 @@ export class SpecialtiesPage {
 
   allPatients(){
     this.navCtrl.push(AllPatientsPage);
+  }
+
+  recipes(){
+    this.navCtrl.push(RecipesPage);
   }
 
 }

@@ -15,9 +15,11 @@ import { DatingPage } from '../pages/dating/dating';
 import { PatientProfilePage } from '../pages/patient-profile/patient-profile';
 import { DoctorProfilePage } from '../pages/doctor-profile/doctor-profile';
 import { AllPatientsPage } from '../pages/all-patients/all-patients';
+import { RecipesPage } from '../pages/recipes/recipes';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { CapitalizePipe } from '../pipes/capitalize/capitalize';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
     DatingPage,
     PatientProfilePage,
     DoctorProfilePage,
-    AllPatientsPage
+    AllPatientsPage,
+    RecipesPage,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,8 @@ import { HttpClientModule } from '@angular/common/http';
     DatingPage,
     PatientProfilePage,
     DoctorProfilePage,
-    AllPatientsPage
+    AllPatientsPage,
+    RecipesPage
   ],
   providers: [
     StatusBar,
