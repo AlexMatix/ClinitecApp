@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -36,12 +36,17 @@ export class DprofilePage {
                        detraxit, posse exerci volutpat has in.`,
     "attention_hour":"Lunes - Viernes de 9:00 am - 18:00 pm"
   };
+  date:any;
+  hour:any;
+  doctorId:any;
+  aDate:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient,
+              public alertCtrl: AlertController) {
     this.url =  SERVER_URL;
-    let au = this.navParams.get('doctor_id');
+    this.doctorId = this.navParams.get('doctor_id');
 
-    this.doctorInfo = this.http.get(`${this.url}/medicos/${au}`, {
+    this.doctorInfo = this.http.get(`${this.url}/medicos/${this.doctorId}`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`
       }
@@ -51,6 +56,35 @@ export class DprofilePage {
       //this.doctorProfile = data;
       console.log(data);
     });
+  }
+
+  schedule(){
+     let data = {
+      "Titulo" : "Cita médica",
+      "Fecha" : this.date,
+      "Hora_inicio" : this.hour,
+      "Hora_termino" : ":)",
+      "idPaciente" : localStorage.getItem('patient_id'),
+      "idMedico" : this.doctorId,
+      "idCentro_medico" : localStorage.getItem('mcenter_id')
+    }
+
+    this.aDate = this.http.post(`${this.url}/citas`, data, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer  ${localStorage.getItem('access_token')}`
+      }
+    });
+
+    this.aDate
+    .subscribe(data => {
+      console.log(data);
+      let alert = this.alertCtrl.create({
+        title: 'Petición de cita enviada',
+        buttons: ['Dismiss']
+      });
+      alert.present();
+    }) 
   }
 
   ionViewDidLoad() {

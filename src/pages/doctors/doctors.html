@@ -19,14 +19,6 @@
             <div class="row row-height">
               <div class="col-lg-5 content-left">
   
-
-                  <ion-list *ngFor="let type of appointment_types">
-                      <ion-list-header >{{ type }}</ion-list-header>
-                      <ion-item-sliding class="shaded-slider" *ngFor="let client of x[type]"> 
-                        <ion-item>{{ client.name }}</ion-item>
-                      </ion-item-sliding>
-                    </ion-list>
-
                 <div *ngFor="let info of doctorInfo;">
                       <div class="strip_list" (click)='viewProfile(info.doctor_id)'>
                         <figure>
@@ -39,12 +31,7 @@
                         <p>{{info.about_me}}</p>
                       </div>
                 </div>
-                
-                <p class="text-center add_top_30">
-                  <a>
-                    <strong>Cargar más...</strong>
-                  </a>
-                </p>
+              
               </div>
             </div>
           </div>

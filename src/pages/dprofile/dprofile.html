@@ -84,26 +84,26 @@
 						<aside class="col-xl-4 col-lg-4" id="sidebar">
 							<div class="theiaStickySidebar">
 								<div class="box_general_3 booking">
-									<form>
 										<div class="title">
-											<h3>Agenda un cita</h3>
+											<h3>Agenda una cita</h3>
 											<small>{{doctorProfile.attention_hour}}</small>
 										</div>
 										<div class="row">
-											<div class="col-6">
-												<div class="form-group">
-													<input class="form-control picker-input" type="date" id="booking_date">
-												</div>
+											<div class="col-12">
+												<ion-item>
+													<ion-label>Día</ion-label>
+													<ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="date"></ion-datetime>
+												</ion-item>
 											</div>
-											<div class="col-6">
-												<div class="form-group">
-													<input class="form-control td-input" type="time" id="booking_time">
-												</div>
+											<div class="col-12">
+												<ion-item>
+													<ion-label>Hora</ion-label>
+													<ion-datetime displayFormat="HH:mm" [(ngModel)]="hour"></ion-datetime>
+												</ion-item>
 											</div>
 										</div>
 										<hr>
-										<a class="btn_1 full-width">Agendar cita</a>
-									</form>
+										<a class="btn_1 full-width" (click)="schedule()">Agendar cita</a>
 								</div>
 							</div>
 						</aside>

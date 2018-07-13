@@ -43,6 +43,8 @@ export class SpecialtiesPage {
     .subscribe(data => {
       console.log(data);
       this.mcenter_id = data.User.idCentro_medico;
+      localStorage.setItem('mcenter_id', data.User.idCentro_medico);
+      localStorage.setItem('patient_id', data.User.id);
     });
 
     this.specialties = this.http.get(`${this.url}/especialidades/${this.mcenter_id}`, {
