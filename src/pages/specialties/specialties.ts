@@ -9,6 +9,7 @@ import { PatientProfilePage } from '../patient-profile/patient-profile';
 import { DoctorProfilePage } from '../doctor-profile/doctor-profile';
 import { AllPatientsPage } from '../all-patients/all-patients';
 import { RecipesPage } from '../recipes/recipes';
+import { LoginPage } from '../login/login'
 
 import { SERVER_URL } from '../../providers/constants/constants';
 
@@ -91,4 +92,8 @@ export class SpecialtiesPage {
     this.navCtrl.push(RecipesPage);
   }
 
+  exit(){
+    localStorage.clear();
+    this.navCtrl.setRoot(LoginPage);
+  }
 }

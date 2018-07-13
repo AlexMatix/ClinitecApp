@@ -1,14 +1,14 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-          <img src="../../assets/imgs/logo_small.png" width="100">        
+          <img src="assets/imgs/logo_small.png" width="100">        
         </ion-title>
     </ion-navbar>
   
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/custom.css">
-    <link rel="stylesheet" href="../../assets/css/menu.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/menu.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </ion-header>
 
 
@@ -18,26 +18,27 @@
           <div class="box_general">
             <div class="list_general">
               <ul>
-                <li>
+                <li *ngFor="let date of dates;">
                   <figure>
-                    <img src="../../assets/imgs/patient.jpg" alt="">
+                    <img src="{{date.photo_url}}" alt="">
                   </figure>
-                  <h4>Sebastian Vargas Barrera</h4>
+                  <h4>{{date.name}}</h4>
                   <ul class="booking_details">
                     <li>
-                      <strong>Día:</strong> 13 Julio 2018</li>
+                      <strong>Día:</strong> {{date.date}}</li>
                     <li>
-                      <strong>Hora:</strong> 10:20 AM</li>
+                      <strong>Hora:</strong> {{date.hour}}</li>
                     <li>
-                      <strong>Teléfono:</strong> 2222553102</li>
+                      <strong>Teléfono:</strong> {{date.phone}}</li>
                     <li>
-                      <strong>Email:</strong> sebastian_vbarrera@outlook.com</li>
+                      <strong>Email:</strong> {{date.email}}</li>
                   </ul>
+                  <br/>
+                  <button type="button" class="btn btn-success btn-lg" (click)="success(date.patient_id,date.date,date.hour)">Aceptar</button>
+                  <button type="button" class="btn btn-danger btn-lg">Cancelar</button>
                 </li>
               </ul>
             </div>
-            <button type="button" class="btn btn-success btn-lg">Aceptar</button>
-            <button type="button" class="btn btn-danger btn-lg">Cancelar</button>
           </div>
         </div>
       </div>
