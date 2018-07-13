@@ -62,8 +62,8 @@ export class SpecialtiesPage {
     console.log('ionViewDidLoad SpecialtiesPage');
   }
 
-  selectOne(){
-    this.navCtrl.push(DoctorsPage);
+  selectOne(value){
+    this.navCtrl.push(DoctorsPage, {'specialitie':value, 'mcenter_id':this.mcenter_id});
   }
 
   dating(){

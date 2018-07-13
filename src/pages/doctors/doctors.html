@@ -1,14 +1,14 @@
 <ion-header>
   <ion-navbar>
       <ion-title>
-        <img src="../../assets/imgs/logo_small.png" width="100">        
+        <img src="assets/imgs/logo_small.png" width="100">        
       </ion-title>
   </ion-navbar>
 
-  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../assets/css/custom.css">
-  <link rel="stylesheet" href="../../assets/css/menu.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </ion-header>
 
 
@@ -18,16 +18,18 @@
           <div class="container-fluid full-height">
             <div class="row row-height">
               <div class="col-lg-5 content-left">
-    
-                <div class="strip_list" (click)='viewProfile()'>
-                  <figure>
-                    <a>
-                      <img src="../../assets/imgs/garcia.jpg" alt="">
-                    </a>
-                  </figure>
-                  <small>Cardiología</small>
-                  <h3>Dra. García</h3>
-                  <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
+  
+                <div *ngFor="let info of doctorInfo;">
+                    <div class="strip_list" (click)='viewProfile(info.doctor_id)'>
+                        <figure>
+                          <a>
+                            <img src="{{info.photo_url}}" alt="">
+                          </a>
+                        </figure>
+                        <small>{{info.job_position}}</small>
+                        <h3>{{info.name}}</h3>
+                        <p>{{info.about_me}}</p>
+                    </div>
                 </div>
                 
                 <p class="text-center add_top_30">
