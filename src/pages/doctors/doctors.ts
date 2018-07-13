@@ -46,8 +46,8 @@ export class DoctorsPage {
     console.log('ionViewDidLoad DoctorsPage');
   }
 
-  viewProfile(){
-    this.navCtrl.push(DprofilePage)
+  viewProfile(doctor_id){
+    this.navCtrl.push(DprofilePage,{"doctor_id":doctor_id});
   }
 
 }

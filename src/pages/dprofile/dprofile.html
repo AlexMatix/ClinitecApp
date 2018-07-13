@@ -4,14 +4,14 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-        <img src="../../assets/imgs/logo_small.png" width="100">        
+        <img src="assets/imgs/logo_small.png" width="100">        
     </ion-title>
   </ion-navbar>
 
-  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../assets/css/custom.css">
-  <link rel="stylesheet" href="../../assets/css/menu.css">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </ion-header>
 
 <ion-content>
@@ -27,16 +27,16 @@
 										<div class="row">
 											<div class="col-lg-5 col-md-4">
 												<figure>
-													<img src="../../assets/imgs/garcia.jpg" alt="" class="img-fluid">
+													<img src="{{doctorProfile.photo_url}}" alt="" class="img-fluid">
 												</figure>
-                      </div>
+                      						</div>
 											<div class="col-lg-7 col-md-8">
-												<small>Cardiologa</small>
-												<h1>Dr. Garcia</h1>
+												<small>{{doctorProfile.job_position}}</small>
+												<h1>{{doctorProfile.name}}</h1>
 												<ul class="contacts">
 													<li>
 														<h6>Dirección</h6>
-														Huamantla, Tlax.
+														{{doctorProfile.address}}
 														<a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361"
 														 target="_blank">
 															<strong>Ver en Google Maps</strong>
@@ -44,7 +44,7 @@
 													</li>
 													<li>
 														<h6>Teléfono</h6>
-														<a href="tel://000434323342">+52 222323342</a>
+														<a href="tel://{{doctorProfile.phone}}">{{doctorProfile.phone}}</a>
 													</li>
 												</ul>
 											</div>
@@ -57,10 +57,7 @@
 										<h3>Sobre mí</h3>
 									</div>
 									<div class="wrapper_indent">
-										<p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh.
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna.
-											In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Nullam mollis. Phasellus hendrerit. Pellentesque aliquet
-											nibh nec urna. In nisi neque, aliquet vel, dapi.</p>
+										<p>{{doctorProfile.about_me}}</p>
 									</div>
 
 									<hr>
@@ -69,8 +66,7 @@
 										<h3>Formación</h3>
 									</div>
 									<div class="wrapper_indent">
-										<p>Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi.
-											Nullam mollis. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapi.</p>
+										<p>{{doctorProfile.education}}</p>
 									</div>
 
 									<hr>
@@ -79,8 +75,7 @@
 										<h3>Servicios y precios</h3>
 									</div>
 									<div class="wrapper_indent">
-										<p>Zril causae ancillae sit ea. Dicam veritus mediocritatem sea ex, nec id agam eius. Te pri facete latine salutandi,
-											scripta mediocrem et sed, cum ne mundi vulputate. Ne his sint graeco detraxit, posse exerci volutpat has in.</p>
+										<p>{{doctorProfile.services_prices}}</p>
 									</div>
 								</div>
 							</div>
@@ -92,7 +87,7 @@
 									<form>
 										<div class="title">
 											<h3>Agenda un cita</h3>
-											<small>Lunes a Viernes 9:00 - 18:00 hrs</small>
+											<small>{{doctorProfile.attention_hour}}</small>
 										</div>
 										<div class="row">
 											<div class="col-6">
