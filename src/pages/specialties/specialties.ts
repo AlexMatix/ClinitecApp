@@ -21,11 +21,11 @@ import { SERVER_URL } from '../../providers/constants/constants';
 export class SpecialtiesPage {
   url: string = "";
   email: string = "";
-  mcenter_id: string = "";
   headers = new HttpHeaders();
   userinfo: Observable<any>;
   specialties: Observable<any>;
-  allSpecialties: any = ['cardiologia', 'estomatologia', 'neurologia', 'pediatria'];
+  allSpecialties: any = [{'Especialidad':'cardiologia'}, {'Especialidad':'estomatologia'}, 
+                          {'Especialidad':'neurologia'}, {'Especialidad':'pediatria'}];
 
   constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams,
               public http: HttpClient) {
@@ -43,7 +43,6 @@ export class SpecialtiesPage {
     this.userinfo
     .subscribe(data => {
       console.log(data);
-      this.mcenter_id = data.User.idCentro_medico;
       localStorage.setItem('mcenter_id', data.User.idCentro_medico);
       localStorage.setItem('id', data.User.id);
       localStorage.setItem('name', data.User.Nombre);
@@ -51,7 +50,8 @@ export class SpecialtiesPage {
       localStorage.setItem('phone', data.User.Telefono);
     });
 
-    this.specialties = this.http.get(`${this.url}/especialidades/${this.mcenter_id}`, {
+    console.log(`${this.url}/especialidades/${localStorage.getItem('mcenter_id')}`);
+    this.specialties = this.http.get(`${this.url}/especialidades/${localStorage.getItem('mcenter_id')}`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`
       }
@@ -69,7 +69,7 @@ export class SpecialtiesPage {
   }
 
   selectOne(value){
-    this.navCtrl.push(DoctorsPage, {'specialitie':value, 'mcenter_id':this.mcenter_id});
+    this.navCtrl.push(DoctorsPage, {'specialitie':value});
   }
 
   dating(){

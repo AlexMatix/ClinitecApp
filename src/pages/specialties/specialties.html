@@ -68,10 +68,10 @@
                     </div>
                     <ul>
                        <div *ngFor="let specialitie of allSpecialties;">
-                            <li (click)="selectOne(specialitie)">    
+                            <li (click)="selectOne(specialitie.Especialidad)">    
                                 <a>
-                                <img src="assets/imgs/especialidades/{{specialitie}}.png" 
-                                     width="40"> {{specialitie | capitalize}}
+                                <img src="assets/imgs/especialidades/{{specialitie.Especialidad}}.png" 
+                                     width="40"> {{specialitie.Especialidad | capitalize}}
                                 </a>
                             <li>
                         </div>
