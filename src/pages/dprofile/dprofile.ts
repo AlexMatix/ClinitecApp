@@ -46,7 +46,7 @@ export class DprofilePage {
     this.url =  SERVER_URL;
     this.doctorId = this.navParams.get('doctor_id');
 
-    this.doctorInfo = this.http.get(`${this.url}/medicos/${this.doctorId}`, {
+    this.doctorInfo = this.http.get(`${this.url}/obtener-info-medico/${this.doctorId}`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`
       }

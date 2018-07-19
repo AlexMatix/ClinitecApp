@@ -1,36 +1,25 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+
+import { SERVER_URL } from '../../providers/constants/constants';
+
 @IonicPage()
 @Component({
   selector: 'page-doctor-profile',
   templateUrl: 'doctor-profile.html',
 })
-export class DoctorProfilePage {  
+export class DoctorProfilePage {
+  url:any = "";
+  res:Observable<any>;
   doctorProfile: any = {
-    "photo_url": "assets/imgs/upload.png",
-    "job_position":"Cardiologa",
-    "name": "Dr. García",
-    "address":"Huamantla, Tlax",
-    "phone":"222323342",
-    "about_me":`Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
-                eget blandit nunc tortor eu nibh. Lorem ipsum dolor sit amet, consectetuer 
-                adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna.
-                In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Nullam mollis. 
-                Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, 
-                aliquet vel, dapi.`,
-    "education":`Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, 
-                 aliquet vel, dapibus id, mattis vel, nisi. Nullam mollis. 
-                 Phasellus hendrerit. Pellentesque aliquet nibh nec urna. 
-                 In nisi neque, aliquet vel, dapi.`,
-    "services_prices":`Zril causae ancillae sit ea. Dicam veritus mediocritatem sea ex, 
-                       nec id agam eius. Te pri facete latine salutandi, scripta 
-                       mediocrem et sed, cum ne mundi vulputate. Ne his sint graeco 
-                       detraxit, posse exerci volutpat has in.`,
-    "attention_hour":"Lunes - Viernes de 9:00 am - 18:00 pm"
+
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+    this.url = SERVER_URL;
   }
 
   ionViewDidLoad() {
@@ -38,7 +27,29 @@ export class DoctorProfilePage {
   }
 
   updateData(){
-    console.log("Información actualizada")
+    let data = {
+       "Medico":localStorage.getItem('id'),
+       "photo_url": "assets/imgs/upload.png",
+       "job_position":"Cardiologa",
+       "name": "Dr. García",
+       "address":"Huamantla, Tlax",
+       "phone":"222323342",
+       "about_me":"demo text",
+       "services_prices":"demo text",
+       "attention_hour":"Lunes - Viernes de 9:00 am - 18:00 pm"
+    };
+
+    this.res = this.http.post(`${this.url}/guardar-info-medico`, data, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer  ${localStorage.getItem('access_token')}`
+      }
+    });
+
+    this.res
+    .subscribe(data => {
+      console.log(data);
+    }) 
   }
 
 }
