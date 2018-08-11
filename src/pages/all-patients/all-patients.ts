@@ -15,8 +15,8 @@ export class AllPatientsPage {
   allPatients:any = [
     {
       "photo_url":"assets/imgs/patient.jpg",
-      "name":"Sebastian Barrera",
-      "patientId":"13"
+      "name":"Sebalin",
+      "patientId":"1"
     }
   ];
   patients: Observable<any>;
@@ -27,7 +27,7 @@ export class AllPatientsPage {
               public alertCtrl: AlertController) {
     this.url =  SERVER_URL;
 
-    this.patients = this.http.get(`${this.url}/pacientes/${localStorage.getItem('id')}`, {
+    this.patients = this.http.get(`${this.url}/pacientes-medicos/${localStorage.getItem('id')}`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`
       }
@@ -48,8 +48,7 @@ export class AllPatientsPage {
       "Medico":localStorage.getItem('id'),
       "Paciente":patient
     };
-
-    this.recipe = this.http.post(`${this.url}/citas`, data, {
+    this.recipe = this.http.post(`${this.url}/ultima-receta`, data, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer  ${localStorage.getItem('access_token')}`
@@ -60,8 +59,8 @@ export class AllPatientsPage {
     .subscribe(data => {
       console.log(data);
       let alert = this.alertCtrl.create({
-        title: 'Petición de cita enviada',
-        buttons: ['Dismiss']
+        title: 'Receta reenviada',
+        buttons: ['Ok']
       });
       alert.present();
     }) 

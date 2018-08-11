@@ -37,7 +37,8 @@ export class DprofilePage {
     "attention_hour":"Lunes - Viernes de 9:00 am - 18:00 pm"
   };
   date:any;
-  hour:any;
+  start_hour:any;
+  end_hour:any;
   doctorId:any;
   aDate:any;
 
@@ -62,8 +63,8 @@ export class DprofilePage {
      let data = {
       "Titulo" : "Cita médica",
       "Fecha" : this.date,
-      "Hora_inicio" : this.hour,
-      "Hora_termino" : ":)",
+      "Hora_inicio" : this.start_hour,
+      "Hora_termino" : this.end_hour,
       "idPaciente" : localStorage.getItem('id'),
       "idMedico" : this.doctorId,
       "idCentro_medico" : localStorage.getItem('mcenter_id')

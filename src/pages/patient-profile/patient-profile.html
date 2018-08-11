@@ -1,14 +1,11 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-          <img src="../../assets/imgs/logo_small.png" width="100">        
+          <img src="assets/imgs/logo_small.png" width="100">        
         </ion-title>
     </ion-navbar>
   
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/custom.css">
-    <link rel="stylesheet" href="../../assets/css/menu.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+
 </ion-header>r>
 
 <ion-content>
@@ -18,9 +15,11 @@
             <div class="col-md-5">
 
                 <div class="box_form">
+                  <!--
                   <div class="form-group">
-                  <img src="{{patientProfile.photo_url}}">
+                    <img src="{{patientProfile.photo_url}}">
                   </div>
+                  -->
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Tu nombre" [(ngModel)]="patientProfile.name">
                   </div>
@@ -43,8 +42,6 @@
 
             </div>
           </div>
-          <!-- /row -->
         </div>
-        <!-- /register -->
       </div>
 </ion-content>

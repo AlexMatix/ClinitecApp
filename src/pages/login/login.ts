@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { SpecialtiesPage } from '../specialties/specialties';
@@ -15,13 +14,12 @@ import { SERVER_URL, ACCESS_TOKEN, SECRET } from '../../providers/constants/cons
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  username: string = "";
-  pass: string = "";
+  username: string = "metalico900@gmail.com";
+  pass: string = "secret";
   url: string = "";
   token: string = "";
   secret: string = "";
   headers = new HttpHeaders();
-  login: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient,
               public load: LoadingController) {
@@ -45,19 +43,17 @@ export class LoginPage {
       password: this.pass,
       Destino: "ClientMovil"
     }
-
-    this.login = this.http.post(`${this.url}/oauth/token`, userInfo, {
+    
+    this.http.post(`${this.url}/oauth/token`, userInfo, {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${this.token}`
+        "Authorization": `Bearer ${this.token}`,
       }
-    });
-
-    this.login
+    })
     .subscribe(data => {
       console.log(data);
-      localStorage.setItem('access_token', data.access_token);
-      localStorage.setItem('refresh_token', data.refresh_token);
+      //localStorage.setItem('access_token', data.access_token);
+      //localStorage.setItem('refresh_token', data.refresh_token);
       localStorage.setItem('email', this.username);
       
       let loading = this.load.create({

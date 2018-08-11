@@ -7,11 +7,6 @@
         <img src="assets/imgs/logo_small.png" width="100">        
     </ion-title>
   </ion-navbar>
-
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <link rel="stylesheet" href="assets/css/menu.css">
-  <link rel="stylesheet" href="assets/css/style.css">
 </ion-header>
 
 <ion-content>
@@ -97,10 +92,16 @@
 											</div>
 											<div class="col-12">
 												<ion-item>
-													<ion-label>Hora</ion-label>
-													<ion-datetime displayFormat="HH:mm" [(ngModel)]="hour"></ion-datetime>
+													<ion-label>Hora de inicio</ion-label>
+													<ion-datetime displayFormat="HH:mm" [(ngModel)]="start_hour"></ion-datetime>
 												</ion-item>
 											</div>
+											<div class="col-12">
+													<ion-item>
+														<ion-label>Hora de final</ion-label>
+														<ion-datetime displayFormat="HH:mm" [(ngModel)]="end_hour"></ion-datetime>
+													</ion-item>
+												</div>
 										</div>
 										<hr>
 										<a class="btn_1 full-width" (click)="schedule()">Agendar cita</a>

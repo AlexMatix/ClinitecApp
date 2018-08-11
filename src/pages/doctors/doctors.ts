@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DprofilePage } from '../dprofile/dprofile';
-
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-
 import { SERVER_URL } from '../../providers/constants/constants';
 
 @IonicPage()
@@ -15,26 +12,24 @@ import { SERVER_URL } from '../../providers/constants/constants';
 export class DoctorsPage {
   
   url:string = ""
-  specialtie: Observable<any>;
   doctorInfo = [{
     "doctor_id":"13",
     "photo_url":"assets/imgs/garcia.jpg",
     "job_position": "Cardiología",
     "name":"Dra. García",
     "about_me":"Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo...."
-  }]
+  }];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
     let au = localStorage.getItem('mcenter_id');
     let er = this.navParams.get('specialitie');
     this.url = SERVER_URL;
     
-    this.specialtie = this.http.get(`${this.url}/especialidades/${au}?Especialidad=${er}`, {
+    this.http.get(`${this.url}/especialidades/${au}?Especialidad=${er}`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`
       }
-    });
-    this.specialtie
+    })
     .subscribe(data => {
       //this.doctorInfo = data;
       console.log(data);

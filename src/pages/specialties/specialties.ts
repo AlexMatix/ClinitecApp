@@ -50,7 +50,6 @@ export class SpecialtiesPage {
       localStorage.setItem('phone', data.User.Telefono);
     });
 
-    console.log(`${this.url}/especialidades/${localStorage.getItem('mcenter_id')}`);
     this.specialties = this.http.get(`${this.url}/especialidades/${localStorage.getItem('mcenter_id')}`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`
