@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { DoctorsPage } from '../doctors/doctors';
 import { DatingPage } from '../dating/dating';
@@ -28,7 +29,7 @@ export class SpecialtiesPage {
                           {'Especialidad':'neurologia'}, {'Especialidad':'pediatria'}];
 
   constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams,
-              public http: HttpClient) {
+              public http: HttpClient, public localNotifications: LocalNotifications) {
 
     this.email = localStorage.getItem('email');
     this.menu.enable(true);
@@ -65,6 +66,10 @@ export class SpecialtiesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpecialtiesPage');
+    this.localNotifications.schedule({
+      id: 1,
+      text: 'Una notifiación salvaje (^o^)/',
+    });
   }
 
   selectOne(value){
