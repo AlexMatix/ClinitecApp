@@ -67,9 +67,9 @@ export class SpecialtiesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpecialtiesPage');
     this.localNotifications.schedule({
-      id: 1,
       text: 'Una notifiación salvaje (^o^)/',
-    });
+      trigger: {at: new Date()}
+   });
   }
 
   selectOne(value){
