@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+
+//Time
+/*
+import * as add_hours from 'date-fns/add_hours'
+import * as add_days from 'date-fns/add_days'*/
 
 import { DoctorsPage } from '../doctors/doctors';
 import { DatingPage } from '../dating/dating';
@@ -22,9 +27,7 @@ import { SERVER_URL } from '../../providers/constants/constants';
 export class SpecialtiesPage {
   url: string = "";
   email: string = "";
-  headers = new HttpHeaders();
   userinfo: Observable<any>;
-  specialties: Observable<any>;
   allSpecialties: any = [{'Especialidad':'cardiologia'}, {'Especialidad':'estomatologia'}, 
                           {'Especialidad':'neurologia'}, {'Especialidad':'pediatria'}];
 
@@ -49,27 +52,21 @@ export class SpecialtiesPage {
       localStorage.setItem('name', data.User.Nombre);
       localStorage.setItem('lastName', data.User.Apellidos);
       localStorage.setItem('phone', data.User.Telefono);
-    });
 
-    this.specialties = this.http.get(`${this.url}/especialidades/${localStorage.getItem('mcenter_id')}`, {
-      headers: {
-        "Authorization": `Bearer ${localStorage.getItem('access_token')}`
-      }
-    });
-    this.specialties
-    .subscribe(data => {
-      console.log(data);
-      //this.allSpecialties = data;
-    });
-
+      this.http.get(`${this.url}/especialidades/${localStorage.getItem('mcenter_id')}`, {
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem('access_token')}`
+        }
+      })
+      .subscribe(data => {
+        console.log(data);
+        //this.allSpecialties = data;
+      })
+    })
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SpecialtiesPage');
-    this.localNotifications.schedule({
-      text: 'Una notifiación salvaje (^o^)/',
-      trigger: {at: new Date()}
-   });
+            
   }
 
   selectOne(value){

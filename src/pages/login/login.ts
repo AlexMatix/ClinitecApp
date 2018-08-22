@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 import { SpecialtiesPage } from '../specialties/specialties';
 import { RegisterPage } from '../register/register';
@@ -19,7 +20,7 @@ export class LoginPage {
   url: string = "";
   token: string = "";
   secret: string = "";
-  headers = new HttpHeaders();
+  login: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient,
               public load: LoadingController) {
@@ -44,16 +45,17 @@ export class LoginPage {
       Destino: "ClientMovil"
     }
     
-    this.http.post(`${this.url}/oauth/token`, userInfo, {
+    this.login = this.http.post(`${this.url}/oauth/token`, userInfo, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${this.token}`,
       }
-    })
-    .subscribe(data => {
+    });
+
+    this.login.subscribe(data => {
       console.log(data);
-      //localStorage.setItem('access_token', data.access_token);
-      //localStorage.setItem('refresh_token', data.refresh_token);
+      localStorage.setItem('access_token', data.access_token);
+      localStorage.setItem('refresh_token', data.refresh_token);
       localStorage.setItem('email', this.username);
       
       let loading = this.load.create({
@@ -67,7 +69,7 @@ export class LoginPage {
         this.navCtrl.setRoot(SpecialtiesPage);
       }, 2000);
 
-    })
+    });
 
   }
 
