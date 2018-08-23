@@ -4,11 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
-//Time
-/*
-import * as add_hours from 'date-fns/add_hours'
-import * as add_days from 'date-fns/add_days'*/
-
 import { DoctorsPage } from '../doctors/doctors';
 import { DatingPage } from '../dating/dating';
 import { PatientProfilePage } from '../patient-profile/patient-profile';
@@ -28,8 +23,10 @@ export class SpecialtiesPage {
   url: string = "";
   email: string = "";
   userinfo: Observable<any>;
-  allSpecialties: any = [{'Especialidad':'cardiologia'}, {'Especialidad':'estomatologia'}, 
-                          {'Especialidad':'neurologia'}, {'Especialidad':'pediatria'}];
+  allSpecialties: any = [{'Especialidad':'cardiologia'}, 
+                         {'Especialidad':'estomatologia'}, 
+                         {'Especialidad':'neurologia'},
+                         {'Especialidad':'pediatria'}];
 
   constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams,
               public http: HttpClient, public localNotifications: LocalNotifications) {
@@ -38,12 +35,12 @@ export class SpecialtiesPage {
     this.menu.enable(true);
     this.url = SERVER_URL;
 
-
     this.userinfo = this.http.get(`${this.url}/user-information/${this.email}`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`
       }
     });
+
     this.userinfo
     .subscribe(data => {
       console.log(data);
@@ -65,9 +62,7 @@ export class SpecialtiesPage {
     })
   }
 
-  ionViewDidLoad() {
-            
-  }
+  ionViewDidLoad(){}
 
   selectOne(value){
     this.navCtrl.push(DoctorsPage, {'specialitie':value});
