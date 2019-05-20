@@ -57,7 +57,7 @@ export class SpecialtiesPage {
       })
       .subscribe(data => {
         console.log(data);
-        //this.allSpecialties = data;
+        this.allSpecialties = data;
       })
     })
   }

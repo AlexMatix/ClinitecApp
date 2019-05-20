@@ -24,19 +24,7 @@ import { CapitalizePipe } from '../pipes/capitalize/capitalize';
 
 @NgModule({
   declarations: [
-    MyApp,
-    LoginPage,
-    RegisterPage,
-    SpecialtiesPage,
-    ForgetPage,
-    DoctorsPage,
-    DprofilePage,
-    DatingPage,
-    PatientProfilePage,
-    DoctorProfilePage,
-    AllPatientsPage,
-    RecipesPage,
-    CapitalizePipe
+    MyApp
   ],
   imports: [
     BrowserModule,

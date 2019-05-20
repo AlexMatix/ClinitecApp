@@ -33,7 +33,7 @@ export class DatingPage {
     });
     this.allDates
     .subscribe(data => {
-      //this.dates = data;
+      this.dates = data;
       console.log(data);
     });
   }

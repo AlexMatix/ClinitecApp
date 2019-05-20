@@ -12,18 +12,18 @@ import { SERVER_URL } from '../../providers/constants/constants';
 export class DoctorsPage {
   
   url:string = ""
-  doctorInfo = [{
-    "doctor_id":"13",
-    "photo_url":"assets/imgs/garcia.jpg",
-    "job_position": "Cardiología",
-    "name":"Dra. García",
-    "about_me":"Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo...."
+  doctorInfo:any =[{
+    "Especialidad": "cardiologia",
+    "Nombre": "Sebalin",
+    "Apellidos": "Barrera"
   }];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
     let au = localStorage.getItem('mcenter_id');
     let er = this.navParams.get('specialitie');
     this.url = SERVER_URL;
+
+    console.log(er);
     
     this.http.get(`${this.url}/especialidades/${au}?Especialidad=${er}`, {
       headers: {
@@ -31,8 +31,8 @@ export class DoctorsPage {
       }
     })
     .subscribe(data => {
-      //this.doctorInfo = data;
       console.log(data);
+      this.doctorInfo = data;
     });
   }
 
@@ -40,8 +40,8 @@ export class DoctorsPage {
     console.log('ionViewDidLoad DoctorsPage');
   }
 
-  viewProfile(doctor_id){
-    this.navCtrl.push(DprofilePage,{"doctor_id":doctor_id});
+  viewProfile(doctorId){
+    this.navCtrl.push(DprofilePage,{"doctor_id":doctorId});
   }
 
 }

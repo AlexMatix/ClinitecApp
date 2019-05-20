@@ -1,27 +1,41 @@
 <ion-header>
   <ion-navbar>
-      <ion-title>
-        <img src="assets/imgs/logo_small.png" width="100">        
-      </ion-title>
+    <ion-title>
+      <img src="assets/imgs/logo_small.png" width="100">
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngFor="let recipe of recipes;">
     <ion-card-header>
-      Receta de {{docInfo.Nombre}} {{docInfo.Apellidos}}
+      Receta
     </ion-card-header>
     <ion-card-content>
-        <div *ngFor="let med of meds;">
-          <p> 
-              <b>Horas:</b> {{med.Tiempo}} <br/>
-              <b>Dias:</b> 13 <br/>
-              <b>Medicamento:</b> {{med.Medicamento}} <br/>
-              <b>Indicaciones:</b> {{med.Prescripcion}} <br/>
+      <div>
+        <p>
+          {{recipe.Titulo}} <br />
+          {{recipe.Descripcion}} <br />
+        </p>
+          <h2>
+            <b>Medicamentos</b>
+          </h2>
+          <br/>
+          <div *ngFor="let med of recipe.Medicamentos;">
+            <p>
+              <b>Horas:</b> {{med.Tiempo}} <br />
+              <b>Dias:</b> <br />
+              <b>Medicamento:</b> {{med.Medicamento}} <br />
+              <b>Indicaciones:</b> {{med.Prescripcion}} <br />
               <b>Cantidad:</b> {{med.Cantidad}}
-          </p>
-          <hr/>
-        </div>
+            </p>
+            <hr/>
+          </div>
+      </div>
+      <!--
+      <button ion-button expand="block" color="danger" (click)='deleteRecipe(recipe.id)'>
+        Borrar receta
+      </button>-->
     </ion-card-content>
   </ion-card>
 </ion-content>

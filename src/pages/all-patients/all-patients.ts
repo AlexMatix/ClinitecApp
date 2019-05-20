@@ -14,9 +14,9 @@ import { SERVER_URL } from '../../providers/constants/constants';
 export class AllPatientsPage {
   allPatients:any = [
     {
-      "photo_url":"assets/imgs/patient.jpg",
-      "name":"Sebalin",
-      "patientId":"1"
+      "Nombre":"Sebalin",
+      "Apellidos":"Barrera",
+      "id":"1"
     }
   ];
   patients: Observable<any>;
@@ -34,7 +34,7 @@ export class AllPatientsPage {
     });
     this.patients
     .subscribe(data => {
-      //this.allPatients = data;
+      this.allPatients = data;
       console.log(data);
     });
   }
@@ -48,6 +48,7 @@ export class AllPatientsPage {
       "Medico":localStorage.getItem('id'),
       "Paciente":patient
     };
+    
     this.recipe = this.http.post(`${this.url}/ultima-receta`, data, {
       headers: {
         "Content-Type": "application/json",

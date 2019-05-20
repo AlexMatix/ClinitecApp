@@ -10,21 +10,9 @@
 
   <ion-list>
     <ion-item *ngFor="let patient of allPatients;">
-      <ion-thumbnail item-start>
-        <img src="{{patient.photo_url}}">
-      </ion-thumbnail>
-      <h2>{{patient.name}}</h2>
-      <button ion-button clear item-end (click)="resend(patient.patientId)">Reenviar receta</button>
-    </ion-item>
-    <!--
-    <ion-item *ngFor="let patient of allPatients;">
-      <ion-thumbnail item-start>
-        <img src="assets/imgs/patient.jpg">
-      </ion-thumbnail>
       <h2>{{patient.Nombre}} {{patient.Apellidos}}</h2>
-      <button ion-button clear item-end (click)="resend(patient.idPaciente)">Reenviar receta</button>
+      <button ion-button clear item-end (click)="resend(patient.id)">Reenviar receta</button>
     </ion-item>
-    -->
   </ion-list>
 
 </ion-content>

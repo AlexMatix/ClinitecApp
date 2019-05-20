@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { AlertController } from 'ionic-angular';
 
 import { SERVER_URL } from '../../providers/constants/constants';
 
-declare var cordova;
+// declare var cordova;
 
 @IonicPage()
 @Component({
@@ -17,57 +18,61 @@ export class RecipesPage {
   meds: any;
   docInfo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public alertCtrl: AlertController) {
     this.url = SERVER_URL;
 
     let info = {
-      "Medico":1,
-      "Paciente":2
+      "Paciente": localStorage.getItem('id')
     }
 
-    this.http.get(`${this.url}/medicos/${info.Medico}`, {
+    this.http.post(`${this.url}/ultima-receta`, info, {
       headers: {
+        "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`
       }
     })
-    .subscribe(data =>{
-      console.log(data);
-      this.docInfo = data;
-    })
+      .subscribe(data => {
+        console.log(data);
+        this.recipes = data;
+        for (let i = 0; i < this.recipes.length; i++) {
+          this.recipes[i].Medicamentos = JSON.parse(this.recipes[i].Medicamentos);
+        }
 
-    this.http.post(`${this.url}/ultima-receta`,info,{
-      headers: {
-        "Authorization": `Bearer ${localStorage.getItem('access_token')}`
-      }
-    })
-    .subscribe(data => {
-      console.log(data);
-      this.recipes = data;
-      this.meds = JSON.parse(this.recipes.Medicamentos)
-
-      if(localStorage.getItem('recipe_id') !== this.recipes.id){
-        localStorage.setItem('recipe_id', this.recipes.id)
-        this.medsNotifications()
-      }
-    })
+      })
 
   }
 
-  ionViewDidLoad(){}
+  ionViewDidLoad() { }
 
-  medsNotifications(){
-      this.meds.forEach(a => {
-        let hours = parseInt(a.Tiempo)
-        a.Dias = 13
-        let days = a.Dias
-        cordova.plugins.notification.local.schedule({
-          title: '¡Hora de los medicamentos! :)',
-          text: `Medicamento: ${a.Medicamento} 
-                 Indicaciones: ${a.Prescripcion} 
-                 Cantidad: ${a.Cantidad}`,
-          trigger: { every: hours, unit: 'hour', firstAt: new Date(), count: days }
-        });
-      });
+  deleteRecipe(id) {
+    let alert = this.alertCtrl.create({
+      title: '¿Deseas borrar la receta?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log(':)');
+          }
+        },
+        {
+          text: 'Sí',
+          handler: () => {
+            this.http.delete(`${this.url}/ultima-receta/${id}`, {
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem('access_token')}`
+              }
+            })
+              .subscribe(data => {
+                console.log(data);
+                this.navCtrl.setRoot(this.navCtrl.getActive().component);
+              })
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

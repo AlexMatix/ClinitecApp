@@ -20,6 +20,16 @@ export class DoctorProfilePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
     this.url = SERVER_URL;
+
+    this.http.get(`${this.url}/obtener-info-medico/${localStorage.getItem('id')}`,{
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem('access_token')}`
+      }
+    })
+    .subscribe(data =>{
+      this.doctorProfile = data;
+    })
+
   }
 
   ionViewDidLoad() {
@@ -27,19 +37,9 @@ export class DoctorProfilePage {
   }
 
   updateData(){
-    let data = {
-       "Medico":localStorage.getItem('id'),
-       "photo_url": "assets/imgs/upload.png",
-       "job_position":"Cardiologa",
-       "name": "Dr. García",
-       "address":"Huamantla, Tlax",
-       "phone":"222323342",
-       "about_me":"demo text",
-       "services_prices":"demo text",
-       "attention_hour":"Lunes - Viernes de 9:00 am - 18:00 pm"
-    };
+    this.doctorProfile.Medico = localStorage.getItem('id');
 
-    this.res = this.http.post(`${this.url}/guardar-info-medico`, data, {
+    this.res = this.http.post(`${this.url}/guardar-info-medico`,this.doctorProfile, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer  ${localStorage.getItem('access_token')}`
