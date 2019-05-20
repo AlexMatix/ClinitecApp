@@ -14,15 +14,7 @@ export class DatingPage {
   url:string = "";
   allDates: Observable<any>;
   confirmDate: Observable<any>;
-  dates:any = [{
-      "photo_url":"assets/imgs/patient.jpg",
-      "name":"Sebastian Vargas Barrera",
-      "date": "12/07/2018",
-      "hour":"23:00",
-      "phone":"2222553102",
-      "email":"sebastian_vbarrera@outlook.com",
-      "patient_id": "13"
-  }];
+  dates:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
     this.url = SERVER_URL;
 

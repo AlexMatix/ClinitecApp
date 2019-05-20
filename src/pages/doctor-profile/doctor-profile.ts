@@ -14,10 +14,7 @@ import { SERVER_URL } from '../../providers/constants/constants';
 export class DoctorProfilePage {
   url:any = "";
   res:Observable<any>;
-  doctorProfile: any = {
-
-  };
-
+  doctorProfile: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
     this.url = SERVER_URL;
 

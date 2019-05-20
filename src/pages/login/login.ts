@@ -15,8 +15,8 @@ import { SERVER_URL, ACCESS_TOKEN, SECRET } from '../../providers/constants/cons
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  username: string = "metalico900@gmail.com";
-  pass: string = "secret";
+  username: string = "";
+  pass: string = "";
   url: string = "";
   token: string = "";
   secret: string = "";

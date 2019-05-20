@@ -12,11 +12,7 @@ import { SERVER_URL } from '../../providers/constants/constants';
 export class DoctorsPage {
   
   url:string = ""
-  doctorInfo:any =[{
-    "Especialidad": "cardiologia",
-    "Nombre": "Sebalin",
-    "Apellidos": "Barrera"
-  }];
+  doctorInfo:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
     let au = localStorage.getItem('mcenter_id');

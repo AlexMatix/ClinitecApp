@@ -12,13 +12,7 @@ import { SERVER_URL } from '../../providers/constants/constants';
   templateUrl: 'all-patients.html',
 })
 export class AllPatientsPage {
-  allPatients:any = [
-    {
-      "Nombre":"Sebalin",
-      "Apellidos":"Barrera",
-      "id":"1"
-    }
-  ];
+  allPatients:any;
   patients: Observable<any>;
   recipe: Observable<any>;
   url:string = "";
