@@ -32,7 +32,7 @@ export class SpecialtiesPage {
               public http: HttpClient, public localNotifications: LocalNotifications) {
 
     this.email = localStorage.getItem('email');
-    this.menu.enable(true);
+    this.menu.enable(true,'menu');
     this.url = SERVER_URL;
 
     this.userinfo = this.http.get(`${this.url}/user-information/${this.email}`, {

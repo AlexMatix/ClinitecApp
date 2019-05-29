@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -15,7 +15,7 @@ export class DatingPage {
   allDates: Observable<any>;
   confirmDate: Observable<any>;
   dates:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient, private alertCtrl: AlertController) {
     this.url = SERVER_URL;
 
     this.allDates = this.http.get(`${this.url}/citas?centro=${localStorage.getItem('mcenter_id')}&medico=${localStorage.getItem('id')}`, {
@@ -49,8 +49,23 @@ export class DatingPage {
     });
     this.confirmDate
     .subscribe(data => {
+      let alert = this.alertCtrl.create({
+        title: '¡Bien hecho! :)',
+        subTitle: 'Cita hecha con éxito',
+        buttons: ['Ok']
+      });
+      alert.present();
       console.log(data);
-    }) 
+    }, err=>{
+      let alert = this.alertCtrl.create({
+        title: '¡Error! :(',
+        subTitle: 'Revisa la información que has introducido',
+        buttons: ['Ok']
+      });
+      alert.present();
+      console.log(err);
+    });
+
   }
 
 }

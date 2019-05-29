@@ -58,6 +58,14 @@ export class AllPatientsPage {
         buttons: ['Ok']
       });
       alert.present();
+    }, err=>{
+      let alert = this.alertCtrl.create({
+        title: '¡Error! :(',
+        subTitle: 'Al reenviar la receta; inténtalo de nuevo',
+        buttons: ['Ok']
+      });
+      alert.present();
+      console.error(err);
     }) 
   }
 

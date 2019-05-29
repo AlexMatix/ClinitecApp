@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -23,7 +23,7 @@ export class LoginPage {
   login: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient,
-              public load: LoadingController) {
+              public load: LoadingController, private alertCtrl: AlertController) {
     this.url = SERVER_URL;
     this.token = ACCESS_TOKEN;
     this.secret = SECRET;
@@ -51,7 +51,7 @@ export class LoginPage {
         "Authorization": `Bearer ${this.token}`,
       }
     });
-
+    
     this.login.subscribe(data => {
       console.log(data);
       localStorage.setItem('access_token', data.access_token);
@@ -69,6 +69,14 @@ export class LoginPage {
         this.navCtrl.setRoot(SpecialtiesPage);
       }, 2000);
 
+    }, err=>{
+      let alert = this.alertCtrl.create({
+        title: '¡Error! :(',
+        subTitle: 'Revisa la información que has introducido',
+        buttons: ['Ok']
+      });
+      alert.present();
+      console.error(err);
     });
 
   }

@@ -64,6 +64,14 @@ export class DprofilePage {
         buttons: ['Dismiss']
       });
       alert.present();
+    }, err=>{
+      let alert = this.alertCtrl.create({
+        title: '¡Error! :(',
+        subTitle: 'Error al pedir cita, inténtalo de nuevo',
+        buttons: ['Ok']
+      });
+      alert.present();
+      console.error(err);
     }) 
   }
 
