@@ -22,19 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    MyApp,
-    LoginPage,
-    AllPatientsPage,
-    DatingPage,
-    DoctorProfilePage,
-    DoctorsPage,
-    ForgetPage,
-    LoginPage,
-    PatientProfilePage,
-    RecipesPage,
-    RegisterPage,
-    SpecialtiesPage,
-    DprofilePage
+    MyApp
   ],
   imports: [
     BrowserModule,
