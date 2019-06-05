@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="clinitec.technous.com" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="clinitec.codett.com" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Clinitec</name>
     <description>An awesome Ionic/Cordova app.</description>
-    <author email="contacto@technous.com" href="http://technous.com/">Technous Team</author>
+    <author email="contacto@codett.com" href="http://codett.com/">Codett Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
