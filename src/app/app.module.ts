@@ -19,6 +19,17 @@ import {AllPatientsPage} from '../pages/all-patients/all-patients';
 import {RecipesPage} from '../pages/recipes/recipes';
 
 import {HttpClientModule} from '@angular/common/http';
+import {LoginPageModule} from "../pages/login/login.module";
+import {RegisterPageModule} from "../pages/register/register.module";
+import {SpecialtiesPageModule} from "../pages/specialties/specialties.module";
+import {ForgetPageModule} from "../pages/forget/forget.module";
+import {DoctorsPageModule} from "../pages/doctors/doctors.module";
+import {DprofilePageModule} from "../pages/dprofile/dprofile.module";
+import {DatingPageModule} from "../pages/dating/dating.module";
+import {PatientProfilePageModule} from "../pages/patient-profile/patient-profile.module";
+import {DoctorProfilePageModule} from "../pages/doctor-profile/doctor-profile.module";
+import {AllPatientsPageModule} from "../pages/all-patients/all-patients.module";
+import {RecipesPageModule} from "../pages/recipes/recipes.module";
 
 @NgModule({
   declarations: [
@@ -29,7 +40,18 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: ''
-    })
+    }),
+    LoginPageModule,
+    RegisterPageModule,
+    SpecialtiesPageModule,
+    ForgetPageModule,
+    DoctorsPageModule,
+    DprofilePageModule,
+    DatingPageModule,
+    PatientProfilePageModule,
+    DoctorProfilePageModule,
+    AllPatientsPageModule,
+    RecipesPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,4 +75,5 @@ import {HttpClientModule} from '@angular/common/http';
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {}
+export class AppModule {
+}
