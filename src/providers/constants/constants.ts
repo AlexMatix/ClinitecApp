@@ -1,3 +1,3 @@
-export let SERVER_URL = "https://api.clinitec.com.mx";
+export let SERVER_URL = "http://api.clinitec.com.mx";
 export let ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJhOTE4NGVkYTFjYjdiZmRhOTJhOTkyZWM4ZTAyODZmZjAwYjc2ZDMzN2VkODU0Y2Y3MTJiOTY5MDc3ZTU5MGY0OTlhMGY4YTZhZDcwOGU2In0";
 export let SECRET = "5prs81bNv9aEugCEJ8SdbQIjKbg2geRBP3Dd4dHQ";

@@ -30,6 +30,7 @@
     "@types/angular": "^1.6.54",
     "@types/ionic": "^3.19.0",
     "@types/node": "^12.0.2",
+    "angular2-signaturepad": "^2.9.0",
     "cordova-android": "^8.1.0",
     "cordova-plugin-badge": "^0.8.8",
     "cordova-plugin-device": "^2.0.2",
