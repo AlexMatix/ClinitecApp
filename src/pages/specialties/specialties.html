@@ -56,7 +56,7 @@
           <div class="row justify-content-center">
 
             <div class="col-xl-4 col-lg-5 col-md-6">
-              <div class="list_home" *ngIf="user?.idTipo_usuario===5 && user?.signature !== ''">
+              <div class="list_home" *ngIf="user?.Tipo_usuario===5 && user?.signature !== null">
                 <div class="list_title">
                   <i class="icon_archive_alt"></i>
                   <h3>Especialidades</h3>
@@ -72,7 +72,7 @@
                   </div>
                 </ul>
               </div>
-              <firm *ngIf="user?.idTipo_usuario===5 && user?.signature === ''"></firm>
+              <firm *ngIf="user?.Tipo_usuario===5 && user?.signature === null" [idUser]="user.id"></firm>
             </div>
           </div>
         </div>

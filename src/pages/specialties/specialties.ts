@@ -36,7 +36,7 @@ export class SpecialtiesPage {
     this.menu.enable(true, 'menu');
     this.url = SERVER_URL;
 
-    this.userinfo = this.http.get(`${this.url}/user-information/${this.email}`, {
+    this.userinfo = this.http.get(`${this.url}/login-usuario/${this.email}`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`
       }
@@ -45,13 +45,14 @@ export class SpecialtiesPage {
     this.userinfo
       .subscribe(data => {
         console.log(data);
-        this.user = data.User;
-        this.user.signature = '';
-        localStorage.setItem('mcenter_id', data.User.idCentro_medico);
-        localStorage.setItem('id', data.User.id);
-        localStorage.setItem('name', data.User.Nombre);
-        localStorage.setItem('lastName', data.User.Apellidos);
-        localStorage.setItem('phone', data.User.Telefono);
+        this.user = data.Usuario;
+        console.log(this.user);
+        // this.user.signature = null;
+        localStorage.setItem('mcenter_id', data.Usuario.idCentro_medico);
+        localStorage.setItem('id', data.Usuario.id);
+        localStorage.setItem('name', data.Usuario.Nombre);
+        localStorage.setItem('lastName', data.Usuario.Apellidos);
+        localStorage.setItem('phone', data.Usuario.Telefono);
 
         this.http.get(`${this.url}/especialidades/${localStorage.getItem('mcenter_id')}`, {
           headers: {

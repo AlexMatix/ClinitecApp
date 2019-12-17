@@ -3,9 +3,12 @@
 </div>
 <ion-row>
   <ion-col col class="w-100 mt-1 mb-3">
-    <ion-checkbox></ion-checkbox>
-    He leído los términos y condiciones. A continuación tiene que generar una firma electrónica para saber que acepta lo
+    He leído los términos y condiciones. A continuación tiene que generar una firma electrónica para saber
+    que acepta lo
     anterior mencionado
+    <ion-item>
+      <ion-checkbox [(ngModel)]="accept"></ion-checkbox>
+    </ion-item>
   </ion-col>
 </ion-row>
 <signature-pad [options]="signaturePadOptions" id="signatureCanvas"></signature-pad>
