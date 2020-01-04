@@ -16,12 +16,12 @@
     </ion-navbar>
   </ion-header>
   <ion-content>
-    <ion-item (click)='doctor_profile()'>
+    <ion-item (click)='doctor_profile()' *ngIf="user && user?.Tipo_usuario === 3">
       <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
       Perfíl Médico
     </ion-item>
 
-    <ion-item (click)='patient_profile()'>
+    <ion-item (click)='patient_profile()' *ngIf="user && user?.Tipo_usuario === 5">
       <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
       Perfíl Paciente
     </ion-item>
@@ -31,7 +31,7 @@
       Consultas
     </ion-item>
 
-    <ion-item (click)='allPatients()'>
+    <ion-item (click)='allPatients()' *ngIf="user && user?.Tipo_usuario === 3">
       <ion-icon ios="ios-contacts" md="md-contacts" item-start></ion-icon>
       Todos los pacientes
     </ion-item>
