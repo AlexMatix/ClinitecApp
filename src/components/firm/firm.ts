@@ -3,6 +3,8 @@ import {SignaturePad} from "angular2-signaturepad/signature-pad";
 import {AlertController, NavController} from "ionic-angular";
 import {HttpClient} from "@angular/common/http";
 import {SERVER_URL} from "../../providers/constants/constants";
+import {SpecialtiesPage} from "../../pages/specialties/specialties";
+import {LoginPage} from "../../pages/login/login";
 
 @Component({
   selector: 'firm',
@@ -44,7 +46,7 @@ export class FirmComponent implements AfterViewInit {
         }).subscribe(
           response => {
             this.message('Operación exitosa!', 'Se acepto los términos y conficiones satisfactoriamente');
-            this.navCtrl.setRoot(this.navCtrl.getActive().component);
+            this.navCtrl.setRoot(SpecialtiesPage);
           },
           error => {
             this.message('Error', 'El servicio no esta disponible en este momento');
@@ -110,4 +112,8 @@ export class FirmComponent implements AfterViewInit {
   }
 
 
+  closeSession() {
+    localStorage.clear();
+    this.navCtrl.setRoot(LoginPage);
+  }
 }

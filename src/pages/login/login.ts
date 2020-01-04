@@ -8,6 +8,7 @@ import {RegisterPage} from '../register/register';
 import {ForgetPage} from '../forget/forget';
 
 import {ACCESS_TOKEN, SECRET, SERVER_URL} from '../../providers/constants/constants';
+import {FirmPage} from "../firm/firm";
 
 @IonicPage()
 @Component({
@@ -31,7 +32,7 @@ export class LoginPage {
 
   ionViewDidLoad() {
     if (localStorage.getItem('access_token')) {
-      this.navCtrl.setRoot(SpecialtiesPage);
+      this.navCtrl.setRoot(FirmPage);
     }
   }
 
@@ -66,7 +67,7 @@ export class LoginPage {
 
       setTimeout(() => {
         loading.dismiss();
-        this.navCtrl.setRoot(SpecialtiesPage);
+        this.navCtrl.setRoot(FirmPage);
       }, 2000);
 
     }, err => {

@@ -30,6 +30,8 @@ import {PatientProfilePageModule} from "../pages/patient-profile/patient-profile
 import {DoctorProfilePageModule} from "../pages/doctor-profile/doctor-profile.module";
 import {AllPatientsPageModule} from "../pages/all-patients/all-patients.module";
 import {RecipesPageModule} from "../pages/recipes/recipes.module";
+import {FirmPage} from "../pages/firm/firm";
+import {FirmPageModule} from "../pages/firm/firm.module";
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import {RecipesPageModule} from "../pages/recipes/recipes.module";
     DoctorProfilePageModule,
     AllPatientsPageModule,
     RecipesPageModule,
+    FirmPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +69,8 @@ import {RecipesPageModule} from "../pages/recipes/recipes.module";
     PatientProfilePage,
     DoctorProfilePage,
     AllPatientsPage,
-    RecipesPage
+    RecipesPage,
+    FirmPage
   ],
   providers: [
     StatusBar,
