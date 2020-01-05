@@ -15,7 +15,8 @@
     "types": []
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "plugins/cordova-plugin-statusbar/types/index.d.ts"
   ],
   "exclude": [
     "node_modules",

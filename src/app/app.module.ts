@@ -1,10 +1,3 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {ErrorHandler, NgModule} from '@angular/core';
-import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
-import {SplashScreen} from '@ionic-native/splash-screen';
-import {StatusBar} from '@ionic-native/status-bar';
-import {LocalNotifications} from '@ionic-native/local-notifications';
-
 import {MyApp} from './app.component';
 import {LoginPage} from '../pages/login/login';
 import {RegisterPage} from '../pages/register/register';
@@ -18,7 +11,6 @@ import {DoctorProfilePage} from '../pages/doctor-profile/doctor-profile';
 import {AllPatientsPage} from '../pages/all-patients/all-patients';
 import {RecipesPage} from '../pages/recipes/recipes';
 
-import {HttpClientModule} from '@angular/common/http';
 import {LoginPageModule} from "../pages/login/login.module";
 import {RegisterPageModule} from "../pages/register/register.module";
 import {SpecialtiesPageModule} from "../pages/specialties/specialties.module";
@@ -32,6 +24,12 @@ import {AllPatientsPageModule} from "../pages/all-patients/all-patients.module";
 import {RecipesPageModule} from "../pages/recipes/recipes.module";
 import {FirmPage} from "../pages/firm/firm";
 import {FirmPageModule} from "../pages/firm/firm.module";
+import {SplashScreen} from "@ionic-native/splash-screen";
+import {LocalNotifications} from "@ionic-native/local-notifications";
+import {BrowserModule} from "@angular/platform-browser";
+import {HttpClientModule} from "@angular/common/http";
+import {IonicApp, IonicErrorHandler, IonicModule} from "ionic-angular";
+import {ErrorHandler, NgModule} from "@angular/core";
 
 @NgModule({
   declarations: [
