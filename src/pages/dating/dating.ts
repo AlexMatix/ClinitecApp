@@ -40,7 +40,7 @@ export class DatingPage {
       "Medico":localStorage.getItem('id'),
       "Fecha":date,
       "Hora_inicio":hour
-    }
+    };
     this.confirmDate = this.http.post(`${this.url}/confirmar-cita`, data, {
       headers: {
         "Content-Type": "application/json",

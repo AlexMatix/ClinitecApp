@@ -44,7 +44,7 @@ export class LoginPage {
       username: this.username,
       password: this.pass,
       Destino: "Client"
-    }
+    };
 
     this.login = this.http.post(`${this.url}/oauth/token`, userInfo, {
       headers: {

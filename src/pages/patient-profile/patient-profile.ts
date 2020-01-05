@@ -13,7 +13,7 @@ export class PatientProfilePage {
     "email":localStorage.getItem('email'),
     "lastName": localStorage.getItem('lastName'),
     "phone":localStorage.getItem('phone')
-  }
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

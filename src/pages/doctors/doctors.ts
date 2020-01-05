@@ -10,8 +10,8 @@ import { SERVER_URL } from '../../providers/constants/constants';
   templateUrl: 'doctors.html',
 })
 export class DoctorsPage {
-  
-  url:string = ""
+
+  url:string = "";
   doctorInfo:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
@@ -20,7 +20,7 @@ export class DoctorsPage {
     this.url = SERVER_URL;
 
     console.log(er);
-    
+
     this.http.get(`${this.url}/especialidades/${au}?Especialidad=${er}`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('access_token')}`

@@ -13,7 +13,7 @@ import { SERVER_URL } from '../../providers/constants/constants';
   templateUrl: 'recipes.html',
 })
 export class RecipesPage {
-  recipes: any = []
+  recipes: any = [];
   url: string;
   meds: any;
   docInfo: any;
@@ -23,7 +23,7 @@ export class RecipesPage {
 
     let info = {
       "Paciente": localStorage.getItem('id')
-    }
+    };
 
     this.http.post(`${this.url}/ultima-receta`, info, {
       headers: {

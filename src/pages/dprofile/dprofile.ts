@@ -47,7 +47,7 @@ export class DprofilePage {
       "idPaciente" : localStorage.getItem('id'),
       "idMedico" : this.doctorId,
       "idCentro_medico" : localStorage.getItem('mcenter_id')
-    }
+    };
 
     this.aDate = this.http.post(`${this.url}/citas`, data, {
       headers: {
@@ -72,7 +72,7 @@ export class DprofilePage {
       });
       alert.present();
       console.error(err);
-    }) 
+    })
   }
 
   ionViewDidLoad() {
