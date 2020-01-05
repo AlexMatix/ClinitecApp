@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {LocalNotifications} from '@ionic-native/local-notifications';
 
 import {DoctorsPage} from '../doctors/doctors';
 import {DatingPage} from '../dating/dating';
@@ -13,6 +12,7 @@ import {RecipesPage} from '../recipes/recipes';
 import {LoginPage} from '../login/login'
 
 import {SERVER_URL} from '../../providers/constants/constants';
+import {LocalNotifications} from "@ionic-native/local-notifications/ngx";
 
 @IonicPage()
 @Component({

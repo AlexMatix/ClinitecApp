@@ -24,12 +24,13 @@ import {AllPatientsPageModule} from "../pages/all-patients/all-patients.module";
 import {RecipesPageModule} from "../pages/recipes/recipes.module";
 import {FirmPage} from "../pages/firm/firm";
 import {FirmPageModule} from "../pages/firm/firm.module";
-import {SplashScreen} from "@ionic-native/splash-screen";
-import {LocalNotifications} from "@ionic-native/local-notifications";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpClientModule} from "@angular/common/http";
 import {IonicApp, IonicErrorHandler, IonicModule} from "ionic-angular";
 import {ErrorHandler, NgModule} from "@angular/core";
+import {SplashScreen} from "@ionic-native/splash-screen/ngx";
+import {LocalNotifications} from "@ionic-native/local-notifications/ngx";
+import {StatusBar} from "@ionic-native/status-bar/ngx";
 
 @NgModule({
   declarations: [

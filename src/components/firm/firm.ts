@@ -1,17 +1,17 @@
-import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
 import {SignaturePad} from "angular2-signaturepad/signature-pad";
 import {AlertController, NavController} from "ionic-angular";
 import {HttpClient} from "@angular/common/http";
 import {SERVER_URL} from "../../providers/constants/constants";
 import {SpecialtiesPage} from "../../pages/specialties/specialties";
 import {LoginPage} from "../../pages/login/login";
+import {AfterViewInit, Component, Input, ViewChild} from "@angular/core";
 
 @Component({
   selector: 'firm',
   templateUrl: 'firm.html'
 })
 export class FirmComponent implements AfterViewInit {
-  @ViewChild(SignaturePad) public signaturePad: SignaturePad;
+  @ViewChild(SignaturePad, {static: false}) public signaturePad: SignaturePad;
 
   accept: boolean = false;
   @Input() idUser;

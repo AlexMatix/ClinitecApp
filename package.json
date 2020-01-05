@@ -52,6 +52,7 @@
     "@angular/cli": "^8.3.21",
     "@angular/compiler-cli": "^8.2.14",
     "@ionic/app-scripts": "^3.2.3",
+    "cordova-plugin-ionic": "^5.4.5",
     "typescript": "^3.4.5"
   },
   "description": "An Ionic project",

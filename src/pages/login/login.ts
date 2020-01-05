@@ -2,8 +2,6 @@ import {Component} from '@angular/core';
 import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-
-import {SpecialtiesPage} from '../specialties/specialties';
 import {RegisterPage} from '../register/register';
 import {ForgetPage} from '../forget/forget';
 
