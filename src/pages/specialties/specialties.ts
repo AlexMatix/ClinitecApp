@@ -12,7 +12,7 @@ import {RecipesPage} from '../recipes/recipes';
 import {LoginPage} from '../login/login'
 
 import {SERVER_URL} from '../../providers/constants/constants';
-import {LocalNotifications} from "@ionic-native/local-notifications/ngx";
+import {LocalNotifications} from "@ionic-native/local-notifications";
 
 @IonicPage()
 @Component({

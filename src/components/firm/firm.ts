@@ -11,7 +11,7 @@ import {AfterViewInit, Component, Input, ViewChild} from "@angular/core";
   templateUrl: 'firm.html'
 })
 export class FirmComponent implements AfterViewInit {
-  @ViewChild(SignaturePad, {static: false}) public signaturePad: SignaturePad;
+  @ViewChild(SignaturePad) public signaturePad: SignaturePad;
 
   accept: boolean = false;
   @Input() idUser;

@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
 import {Platform} from 'ionic-angular';
 
 import {LoginPage} from '../pages/login/login';
-import {SplashScreen} from "@ionic-native/splash-screen/ngx";
-import {StatusBar} from "@ionic-native/status-bar/ngx";
+import {StatusBar} from "@ionic-native/status-bar";
+import {SplashScreen} from "@ionic-native/splash-screen";
+import {Component} from "@angular/core";
 
 @Component({
   templateUrl: 'app.html'
